@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Temp=(weatherInfo)=> {
+const Temp=({weatherInfo})=> {
 
     const {
         temp_c,
@@ -16,44 +16,47 @@ const Temp=(weatherInfo)=> {
         localtime,
         country
     }=weatherInfo;
+    console.log(weatherInfo);
 
     return (
         <div>
-            <div><i className="wi wi-day-rain"></i></div>
+            <div>
+                {/* <i className={icon}></i> */}
+                <img src={icon} alt="" />
+                </div>
             <div>
                 <div>
                     <span>{temp_c}&deg;</span>
                     <span>sunny</span></div>
-                console.log({temp_c})
-                <div>new delhi indan</div>
+                <div>{name}{country} </div>
             </div>
-            <div>{new Date().toLocaleDateString()}</div>
+            <div>{localtime}</div>
             <div>
                 <div>
                     <p> <i className={"wi wi-sunset"}></i></p>
                     <div>
-                        <p>19:19<br />sunset</p>
-                    </div>
-                   
-                </div>
-                <div>
-                    <p> <i className={"wi wi-sunset"}></i></p>
-                    <div>
-                        <p>19:19<br />sunset</p>
-                    </div>
-                   
-                </div>
-                <div>
-                    <p> <i className={"wi wi-rain"}></i></p>
-                    <div>
-                        <p>19:19<br />rain</p>
+                        <p><br />sunset</p>
                     </div>
                    
                 </div>
                 <div>
                     <p> <i className={"wi wi-humidity"}></i></p>
                     <div>
-                        <p>19:19<br />humidity</p>
+                        <p>{humidity}<br />humidity</p>
+                    </div>
+                   
+                </div>
+                <div>
+                    <p> <i className={"wi wi-rain"}></i></p>
+                    <div>
+                        <p>{pressure_in}<br />pressure</p>
+                    </div>
+                   
+                </div>
+                <div>
+                    <p> <i className={"wi wi-strong-wind"}></i></p>
+                    <div>
+                        <p>{wind_kph}&{wind_dir}<br />wind</p>
                     </div>
                    
                 </div>
