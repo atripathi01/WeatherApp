@@ -1,6 +1,6 @@
 import React from 'react'
-
-const Temp=({weatherInfo})=> {
+import './style.css'
+const Temp = ({ weatherInfo }) => {
 
     const {
         temp_c,
@@ -15,52 +15,67 @@ const Temp=({weatherInfo})=> {
         region,
         localtime,
         country
-    }=weatherInfo;
+    } = weatherInfo;
     console.log(weatherInfo);
 
     return (
-        <div>
-            <div>
-                {/* <i className={icon}></i> */}
-                <img src={icon} alt="" />
-                </div>
-            <div>
-                <div>
-                    <span>{temp_c}&deg;</span>
-                    <span>sunny</span></div>
-                <div>{name}{country} </div>
-            </div>
-            <div>{localtime}</div>
-            <div>
-                <div>
-                    <p> <i className={"wi wi-sunset"}></i></p>
-                    <div>
-                        <p><br />sunset</p>
+        <div className="weatherPage">
+            <section className="weatherBox">
+                <div className="iconBox">
+                    <div className="weatherLogo">
+
+                        <img src={icon} alt="weatherIcon" className="weatherIcon" />
                     </div>
-                   
                 </div>
-                <div>
-                    <p> <i className={"wi wi-humidity"}></i></p>
+
+
+                <div className="weatherDetail">
                     <div>
-                        <p>{humidity}<br />humidity</p>
+                        <div>
+                            <span>{temp_c}&deg;</span>
+                            <span>sunny</span>
+                        </div>
+                        <div>
+                            {name}{country}
+                        </div>
                     </div>
-                   
-                </div>
-                <div>
-                    <p> <i className={"wi wi-rain"}></i></p>
                     <div>
-                        <p>{pressure_in}<br />pressure</p>
+                        {localtime}
                     </div>
-                   
                 </div>
-                <div>
-                    <p> <i className={"wi wi-strong-wind"}></i></p>
-                    <div>
-                        <p>{wind_kph}&{wind_dir}<br />wind</p>
+                </section>
+                <div className="extraDetail">
+                    <div className="extraDetailBox">
+                        <p> <i className={"wi wi-sunset"}></i></p>
+                        <div>
+                            <p><br />sunset</p>
+                        </div>
+
                     </div>
-                   
+                    <div className="extraDetailBox">
+                        <p> <i className={"wi wi-humidity"}></i></p>
+                        <div>
+                            <p>{humidity}<br />humidity</p>
+                        </div>
+
+                    </div>
+                    <div className="extraDetailBox">
+                        <p> <i className={"wi wi-rain"}></i></p>
+                        <div>
+                            <p>{pressure_in}<br />pressure</p>
+                        </div>
+
+                    </div>
+                    <div className="extraDetailBox">
+                        <p> <i className={"wi wi-strong-wind"}></i></p>
+                        <div>
+                            <p>{wind_kph}&{wind_dir}<br />wind</p>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+
+           
         </div>
     )
 }

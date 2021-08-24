@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Temp from './temp';
+import './style.css'
 
 function Weather() {
     const[searchValue,setSearchValue]=useState("rewa");
@@ -43,11 +44,12 @@ function Weather() {
     }, [])
 
     return (
+        <>
 
-        <div>
-            <div>
+        <div className="searchSection">
+            <div className="inputBox">
                 <input 
-                placeholder="search" 
+                placeholder="City Name" 
                 className="search" 
                 type="search" 
                 autoFocus
@@ -56,8 +58,9 @@ function Weather() {
                   ></input>
                 <button type="search" className="searchBtn" onClick={getWeatherData}>Search</button>
             </div>
-            <Temp weatherInfo={weatherInfo} />
         </div>
+            <Temp weatherInfo={weatherInfo} />
+            </>
     )
 }
 
