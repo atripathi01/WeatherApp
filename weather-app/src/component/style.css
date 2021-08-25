@@ -1,3 +1,6 @@
+/* font-family: 'Nunito', sans-serif;
+font-family: 'Raleway', sans-serif; */
+
 .searchSection{
     display: flex;
     justify-content: center;
@@ -5,11 +8,14 @@
     height: 15vh;
     width: 100%;
     background-color: rgb(51, 51, 189);
+    font-family: 'Raleway', sans-serif; 
 }
 .search{
     font-size: 18px;
     padding: 0.3rem 1rem;
     outline: none;
+    font-family: 'Raleway', sans-serif; 
+    font-weight: 500;
 }
 .search:hover{
     outline: none;
@@ -21,6 +27,8 @@
     transition: 0.2s;
     color: #fff;
     border:none;
+    font-family: 'Raleway', sans-serif; 
+    
 }
 .searchBtn:hover{
     transform: scale(1.2);
@@ -35,10 +43,12 @@
 .weatherBox{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 100%;
     max-width: 80%;
     height: auto;
     min-height: 66vh;
+    height: 100%;
 }
 .extraDetail{
    display: flex;
@@ -49,6 +59,59 @@
   background-color: green;
 
 }
+.extraDetailBox{
+    color: #fff;
+}
 .weatherIcon{
     width: 150px;
+}
+.weatherDetail{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+/* .currentTemp{
+} */
+.cityTemp{
+    font-size: 65px;
+}
+.cityName{
+    padding-bottom: 3rem;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+.dateAndTime{
+    font-size: 24px;
+    font-family: 'Nunito', sans-serif;
+
+}
+.wi{
+    font-size: 24px;
+}
+.da{
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+}
+.foo{
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    background-color: rgb(32, 30, 30);
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a{
+    margin: 0 1rem;
+    color: #fff;
+    transition: 0.2s;
+}
+a:hover{
+    color: green;
+    transform: scale(1.2);
 }

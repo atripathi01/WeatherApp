@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Temp from './temp';
 import './style.css'
+import { FaGithub,FaTwitter,FaLinkedin } from "react-icons/fa";
+
 
 function Weather() {
-    const[searchValue,setSearchValue]=useState("rewa");
+    const[searchValue,setSearchValue]=useState("Mumbai");
     const[weatherInfo,setWeatherInfo]=useState({});
     const getWeatherData=async()=>{
         try {
@@ -13,9 +15,9 @@ function Weather() {
             const data=await response.json();
             console.log(data);
             console.log(searchValue);
-            const {temp_c ,humidity,wind_kph,wind_dir,pressure_in,cloud}=data.current;
+            const {temp_c ,humidity,feelslike_c,wind_kph,wind_dir,pressure_in,cloud}=data.current;
             const{icon,text}=data.current.condition;
-            const{name,region,localtime,country}=data.location;
+            const{name,region,localtime_epoch,localtime,country}=data.location;
             console.log(temp_c , humidity,wind_dir,wind_kph,icon,text,cloud,pressure_in, name , region, localtime,country);
 
             const allData={
@@ -30,7 +32,9 @@ function Weather() {
                 name,
                 region,
                 localtime,
-                country
+                country,
+                feelslike_c,
+                localtime_epoch
             };
             setWeatherInfo(allData);
 
@@ -60,6 +64,14 @@ function Weather() {
             </div>
         </div>
             <Temp weatherInfo={weatherInfo} />
+            <footer className="foo">
+                <div>ayushtripathi@2021</div>
+                {/* <div>
+                    <a href="http://www.linkedin.com/in/ayush-tripathi-1341651b6/"><FaLinkedin /></a>
+                    <a href="https://twitter.com/ayush___07"><FaTwitter /></a>
+                    <a href="http://github.com/atripathi01"><FaGithub /></a>
+                </div> */}
+            </footer>
             </>
     )
 }

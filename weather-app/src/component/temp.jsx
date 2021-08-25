@@ -14,13 +14,15 @@ const Temp = ({ weatherInfo }) => {
         name,
         region,
         localtime,
-        country
+        country,
+        feelslike_c,
+        localtime_epoch
     } = weatherInfo;
     console.log(weatherInfo);
 
     return (
         <div className="weatherPage">
-            <section className="weatherBox">
+            <section className="weatherBox">    
                 <div className="iconBox">
                     <div className="weatherLogo">
 
@@ -31,44 +33,44 @@ const Temp = ({ weatherInfo }) => {
 
                 <div className="weatherDetail">
                     <div>
-                        <div>
-                            <span>{temp_c}&deg;</span>
-                            <span>sunny</span>
+                        <div className="currentTemp">
+                            <span className="cityTemp">{temp_c}&deg;</span>
                         </div>
-                        <div>
-                            {name}{country}
+                        <div className="cityName">
+                            <p>{name}, {region}<br /> {country}</p>
+                        <p>Temp. Feelslike: {feelslike_c}</p>
                         </div>
                     </div>
                     <div>
-                        {localtime}
+                        <p className="dateAndTime">Date & Time: {localtime}</p>
                     </div>
                 </div>
                 </section>
                 <div className="extraDetail">
                     <div className="extraDetailBox">
                         <p> <i className={"wi wi-sunset"}></i></p>
-                        <div>
-                            <p><br />sunset</p>
+                        <div className="da">
+                            <p>{new Date(`{localtime_epoch}*1000`).toLocaleTimeString('en-IN')}<br />sunset</p>
                         </div>
 
                     </div>
                     <div className="extraDetailBox">
                         <p> <i className={"wi wi-humidity"}></i></p>
-                        <div>
+                        <div className="da">
                             <p>{humidity}<br />humidity</p>
                         </div>
 
                     </div>
                     <div className="extraDetailBox">
                         <p> <i className={"wi wi-rain"}></i></p>
-                        <div>
+                        <div className="da">
                             <p>{pressure_in}<br />pressure</p>
                         </div>
 
                     </div>
                     <div className="extraDetailBox">
                         <p> <i className={"wi wi-strong-wind"}></i></p>
-                        <div>
+                        <div className="da">
                             <p>{wind_kph}&{wind_dir}<br />wind</p>
                         </div>
 
