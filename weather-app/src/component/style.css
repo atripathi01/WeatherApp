@@ -104,6 +104,10 @@ font-family: 'Raleway', sans-serif; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+}
+.foo div{
+    padding: 0 2rem;
 }
 
 a{

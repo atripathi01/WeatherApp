@@ -73,11 +73,7 @@ function Weather() {
             <Temp weatherInfo={weatherInfo} />
             <footer className="foo">
                 <div>ayushtripathi@2021</div>
-                {/* <div>
-                    <a href="http://www.linkedin.com/in/ayush-tripathi-1341651b6/"><FaLinkedin /></a>
-                    <a href="https://twitter.com/ayush___07"><FaTwitter /></a>
-                    <a href="http://github.com/atripathi01"><FaGithub /></a>
-                </div> */}
+               <div>Weather App</div>
             </footer>
         </>
     )
