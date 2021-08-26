@@ -1,7 +1,17 @@
 import React from 'react'
 import './style.css'
+import { motion } from 'framer-motion'
 const Temp = ({ weatherInfo }) => {
-
+    const varient = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delay:0.2
+            }
+        }
+    }
     const {
         temp_c,
         humidity,
@@ -22,7 +32,11 @@ const Temp = ({ weatherInfo }) => {
 
     return (
         <div className="weatherPage">
-            <section className="weatherBox">    
+            <motion.section 
+              className="weatherBox"
+              initial="hidden"
+              animate="visible"
+              variants={varient}>
                 <div className="iconBox">
                     <div className="weatherLogo">
 
@@ -38,46 +52,66 @@ const Temp = ({ weatherInfo }) => {
                         </div>
                         <div className="cityName">
                             <p>{name}, {region}<br /> {country}</p>
-                        <p>Temp. Feelslike: {feelslike_c}</p>
+                            <p>Temp. Feelslike: {feelslike_c}</p>
                         </div>
                     </div>
                     <div>
                         <p className="dateAndTime">Date & Time: {localtime}</p>
                     </div>
                 </div>
-                </section>
-                <div className="extraDetail">
-                    <div className="extraDetailBox">
-                        <p> <i className={"wi wi-sunset"}></i></p>
-                        <div className="da">
-                            <p>{new Date(`{localtime_epoch}*1000`).toLocaleTimeString('en-IN')}<br />sunset</p>
-                        </div>
-
+            </motion.section>
+            <div className="extraDetail">
+                <motion.div className="extraDetailBox"
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={
+                   { duration:1}
+                }>
+                    <p> <i className={"wi wi-sunset"}></i></p>
+                    <div className="da">
+                        <p>{new Date(`{localtime_epoch}*1000`).toLocaleTimeString('en-IN')}<br />sunset</p>
                     </div>
-                    <div className="extraDetailBox">
-                        <p> <i className={"wi wi-humidity"}></i></p>
-                        <div className="da">
-                            <p>{humidity}<br />humidity</p>
-                        </div>
 
+                </motion.div>
+                <motion.div className="extraDetailBox"
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={
+                   { duration:1}
+                }>
+                    <p> <i className={"wi wi-humidity"}></i></p>
+                    <div className="da">
+                        <p>{humidity}<br />humidity</p>
                     </div>
-                    <div className="extraDetailBox">
-                        <p> <i className={"wi wi-rain"}></i></p>
-                        <div className="da">
-                            <p>{pressure_in}<br />pressure</p>
-                        </div>
 
+                </motion.div>
+                <motion.div className="extraDetailBox"
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={
+                   { duration:1}
+                }>
+                    <p> <i className={"wi wi-rain"}></i></p>
+                    <div className="da">
+                        <p>{pressure_in}<br />pressure</p>
                     </div>
-                    <div className="extraDetailBox">
-                        <p> <i className={"wi wi-strong-wind"}></i></p>
-                        <div className="da">
-                            <p>{wind_kph}&{wind_dir}<br />wind</p>
-                        </div>
 
+                </motion.div>
+                <motion.div className="extraDetailBox"
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={
+                   { duration:1}
+                }>
+                    <p> <i className={"wi wi-strong-wind"}></i></p>
+                    <div className="da">
+                        <p>{wind_kph}&{wind_dir}<br />wind</p>
                     </div>
-                </div>
 
-           
+                </motion.div>
+            </div>
+
+
         </div>
     )
 }
